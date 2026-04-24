@@ -1,32 +1,103 @@
-🚀 Overview
-This project implements a robust Human Activity Recognition system. It leverages Transfer Learning with the EfficientNetB0 model (or your specific variant) to classify various human actions. The model is trained to achieve high accuracy and provides a confidence score for every prediction made on new, unseen images.
+# Human Activity Recognition (HAR) - Hybrid ML/DL Pipeline
 
-🛠️ Tech Stack
-Language: Python
+A clean, end-to-end Human Activity Recognition project built in Python and designed for Kaggle workflows.  
+The notebook combines deep learning feature extraction (EfficientNetB0) with classical machine learning and ensembling to classify human actions from images.
 
-Deep Learning Framework: TensorFlow / Keras
+## Project Highlights
 
-Model Architecture: EfficientNet
+- Hybrid architecture using EfficientNetB0 + traditional ML classifiers.
+- Multi-model benchmarking (including Random Forest and XGBoost).
+- End-to-end training, evaluation, visualization, and artifact export.
+- Kaggle-ready data paths and GPU-aware setup.
+- Includes extracted result figures from the notebook for quick repo preview.
 
-Data Handling: NumPy, Joblib (for label encoding)
+## Repository Structure
 
-Visualization: Matplotlib
+```text
+.
+├── assets/
+│   └── images/
+│       ├── training-plot-01.png
+│       ├── training-plot-02.png
+│       └── training-plot-03.png
+├── notebooks/
+│   └── har-lab-proj-final.ipynb
+├── .gitignore
+├── CHANGELOG.md
+├── CONTRIBUTING.md
+├── LICENSE
+├── README.md
+└── requirements.txt
+```
 
-📂 Key Features
-Automated Preprocessing: Utilizes EfficientNet.preprocess_input to ensure image data matches the model’s expected distribution.
+## Visual Results
 
-Model Persistency: Saves the trained model (.h5 or SavedModel format) and the LabelEncoder for seamless deployment.
+### Training/Evaluation Figure 1
+![Training Plot 1](assets/images/training-plot-01.png)
 
-Predictive Interface: A dedicated testing script that allows users to input a specific image path and receive a visual prediction with a confidence percentage.
+### Training/Evaluation Figure 2
+![Training Plot 2](assets/images/training-plot-02.png)
 
-Kaggle Compatible: Optimized to run in cloud environments like Kaggle using specific directory structures (/kaggle/input and /kaggle/working).
+### Training/Evaluation Figure 3
+![Training Plot 3](assets/images/training-plot-03.png)
 
-📊 How to Use
-Training: Run the training script to generate the model.h5 and label_encoder.pkl.
+## Tech Stack
 
-Prediction: Use the testing block to classify a specific image:
+- Python
+- TensorFlow / Keras (`EfficientNetB0`)
+- Scikit-learn
+- XGBoost
+- OpenCV
+- NumPy, Pandas, Matplotlib, Seaborn
+- Joblib
 
-Python
-# Example usage:
-predictions = model.predict(img_array)
-predicted_class = label_encoder.classes_[np.argmax(predictions)]
+## Quick Start
+
+### 1) Clone
+
+```bash
+git clone <your-repo-url>
+cd Machine-learning--main
+```
+
+### 2) Create Environment
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+### 3) Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4) Run the Notebook
+
+Open and run:
+
+`notebooks/har-lab-proj-final.ipynb`
+
+## Workflow Summary
+
+1. Authenticate/download datasets via `kagglehub`.
+2. Load and preprocess labeled training data.
+3. Extract deep features with EfficientNetB0.
+4. Train/evaluate multiple ML models on extracted features.
+5. Build a hybrid/meta model and compare performance.
+6. Save trained artifacts (model weights, scaler, label encoder, plots).
+
+## Notes
+
+- This notebook is optimized for Kaggle paths (for example `/kaggle/input` and `/kaggle/working`).
+- If running locally, update data paths accordingly.
+- A future improvement is to save Keras models in `.keras` format instead of legacy `.h5`.
+
+## Contributing
+
+Contributions are welcome. See `CONTRIBUTING.md` for development and pull request guidelines.
+
+## License
+
+This project is licensed under the MIT License. See `LICENSE` for details.
