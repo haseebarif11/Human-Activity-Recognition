@@ -38,9 +38,6 @@ The notebook combines deep learning feature extraction (EfficientNetB0) with cla
 ### Training/Evaluation Figure 2
 ![Training Plot 2](assets/images/training-plot-02.png)
 
-### Training/Evaluation Figure 3
-![Training Plot 3](assets/images/training-plot-03.png)
-
 ## Tech Stack
 
 - Python
